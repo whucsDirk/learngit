@@ -1,3 +1,20 @@
 工作日志：
-1.Git远程登录失败问题解决；
+1.Git远程登录失败问题解决；在GitHub主页添加SSH KEY；
 2.Git网页登录慢和失败问题解决。
+3.手动修改MAC/etc/hosts文件，重启电脑之后发现登录GitHub依旧很慢；
+4.下载工具SwitchHosts，通过配置远程GitHub的Hosts地址，实现自动更新GitHub主页的服务器地址，从而实现访问GitHub主页加速；
+5.在MAC终端实验，通过git命令实现远程同步成功；同时也遇到了如下几个问题：
+1）git add test.txt;在git commit命令时出现了两种错误：
+第一种是会出现未监控的文件，如文件夹gitskills（这个是之前创建的，但是在这一次commit的时候本地已经删除了，不知道为什么会再出现）；还有就是.DS_Store。
+On branch master
+Your branch is up to date with 'origin/master'.
+
+Untracked files:
+	gitskills/
+
+nothing added to commit but untracked files present
+
+出现这种问题的时候如果重新git add 未监控的文件；然后再git commit；最后git push；那么此次成功和远程仓库同步的文件就是这个未监控的文件；实际想要同步的文件并没有同步；不过可以在之后再次git add ；git commit；git push；此时可以成功；
+2）在git push的时候会出现的问题：
+git push origin master --force
+Everything up-to-date
